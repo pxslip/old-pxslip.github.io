@@ -108,6 +108,37 @@ function Person() {
 }
 ```
 
+### <a href="promises"></a> Promises ###
+
+See: [MDN - Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
+```js
+// ES3
+doSomethingThatRequiresACallback(param, function (something) {
+    // we're in the callback, but what if we need to do something else that needs a callback...
+    $.get('somewhere', function (response) {
+        // we have the response and want to do something with that
+        callSomethingElse(response, function () {
+            // ok we're finally done, but where in callback hell are we?
+            finishUp();
+        })
+    });
+});
+
+// ES2015+
+// assume all functions properly return a promise
+doSomethingThatReturnsAPromise(param)
+    .then(() => {
+        // look ma an arrow function
+        // preserves the scope
+        return $.get('somewhere');
+    }).then(response => {
+        return callSomethingElse(response);
+    }).then(() => {
+        finishUp();
+    });
+```
+
 ### <a href="variable-inclusion"></a> Variable Inclusion ###
 
 ```js
