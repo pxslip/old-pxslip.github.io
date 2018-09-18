@@ -33,6 +33,7 @@ This is the big one, the first release in 6 years it introduced many of the feat
   - Dynamic Properties
 - `for...of` loops
 - `Map` and `Set`
+- `Array.prototype.forEach`
 
 ## ES2016/ES7 ##
 
@@ -152,4 +153,78 @@ const someVariable = 'Hello World';
 const someObject = {
     someVariable
 };
+```
+
+### Async/Await ###
+
+```js
+someFunction() {
+  let finalResult;
+  doSomethingThatReturnsAPromise(param)
+    .then(result => {
+      finalResult = result;
+    });
+}
+
+// ES2017
+async someFunction() {
+  let finalResult = await doSomethingThatReturnsAPromise(param);
+}
+```
+
+### Classes ###
+
+```js
+
+function someClass(someParam) {
+  this.someParam = someParam;
+}
+
+Object.defineProperty(someClass.prototype, 'someParam', {
+  get: function() { return this.someParam; },
+});
+
+someClass.prototype.logSomeParam = function () {
+  console.log(this.someParam);
+};
+
+class someClass {
+  constructor(someParam) {
+    this.someParam = someParam;
+  }
+
+  get someParam() {
+    return this.someParam;
+  }
+
+  logSomeParam() {
+    console.log(this.someParam);
+  }
+}
+```
+
+### for...of loops ###
+
+```js
+// generator function!
+function *fibonacci(n) {
+  const infinite = !n && n !== 0;
+  let current = 0;
+  let next = 1;
+  
+  while (infinite || n--) {
+    yield current;
+    [current, next] = [next, current + next];
+  }
+}
+
+for (let value of fibonacci(10)) {
+  // will log the first 10 fibonacci sequence values
+  console.log(value);
+}
+```
+
+### Array.prototype.forEach ###
+
+```js
 ```
