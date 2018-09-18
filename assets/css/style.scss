@@ -1,0 +1,16 @@
+---
+# Ensure Jekyll transforms this
+---
+
+@import "{{ site.theme }}";
+
+header .recents ul li {
+  width: auto;
+  float: none;
+  border: none;
+  height: auto;
+}
+
+header .recents ul li a {
+  text-align: left;
+}

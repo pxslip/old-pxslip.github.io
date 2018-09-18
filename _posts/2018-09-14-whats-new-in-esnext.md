@@ -108,7 +108,7 @@ function Person() {
 }
 ```
 
-### <a href="promises"></a> Promises ###
+### Promises ###
 
 See: [MDN - Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
