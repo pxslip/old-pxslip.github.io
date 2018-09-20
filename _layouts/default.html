@@ -13,22 +13,8 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
+      <header class="header-background">
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-
-        {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" />
-        {% endif %}
-
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
-
-        <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
-        <h2>Recent Posts</h2>
-        <ul class="recents">
-            {% for post in site.posts limit:5 %}
-                <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.date | date_to_string }} - {{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
       </header>
       <section>
 
