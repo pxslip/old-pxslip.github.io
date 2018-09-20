@@ -73,7 +73,7 @@ This is the latest release, published June 2018.
 
 ## Examples ##
 
-### <a href="arrow-functions"></a> Arrow Functions ###
+### Arrow Functions ###
 
 source: [MDN - Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
@@ -140,37 +140,9 @@ doSomethingThatReturnsAPromise(param)
     });
 ```
 
-### <a href="variable-inclusion"></a> Variable Inclusion ###
+### Generator Functions ###
 
-```js
-// ES3
-var someVariable = 'Hello World';
-var someObject = {
-    someVariable: someVariable
-};
-// ES2015
-const someVariable = 'Hello World';
-const someObject = {
-    someVariable
-};
-```
-
-### Async/Await ###
-
-```js
-someFunction() {
-  let finalResult;
-  doSomethingThatReturnsAPromise(param)
-    .then(result => {
-      finalResult = result;
-    });
-}
-
-// ES2017
-async someFunction() {
-  let finalResult = await doSomethingThatReturnsAPromise(param);
-}
-```
+### Variable Types ###
 
 ### Classes ###
 
@@ -203,6 +175,40 @@ class someClass {
 }
 ```
 
+### Modules ###
+
+### Variable Inclusion ###
+
+```js
+// ES3
+var someVariable = 'Hello World';
+var someObject = {
+    someVariable: someVariable
+};
+// ES2015
+const someVariable = 'Hello World';
+const someObject = {
+    someVariable
+};
+```
+
+### Async/Await ###
+
+```js
+someFunction() {
+  let finalResult;
+  doSomethingThatReturnsAPromise(param)
+    .then(result => {
+      finalResult = result;
+    });
+}
+
+// ES2017
+async someFunction() {
+  let finalResult = await doSomethingThatReturnsAPromise(param);
+}
+```
+
 ### for...of loops ###
 
 ```js
@@ -214,7 +220,7 @@ function *fibonacci(n) {
   
   while (infinite || n--) {
     yield current;
-    [current, next] = [next, current + next];
+    [current, next] = [next, current + next]; // destructuring!
   }
 }
 
@@ -224,7 +230,68 @@ for (let value of fibonacci(10)) {
 }
 ```
 
-### Array.prototype.forEach ###
+### for...in loops ###
+
+[MDN - for...in loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
 
 ```js
+const obj = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+
+for (const prop in obj) {
+  console.log(`${prop}: ${obj[prop]}`);
+}
+```
+
+Some caution must be taken using a `for..in` loop as it will loop over all enumerable properties on an array, including inherited ones. Use `hasOwnProperty` to filter prototypical properties.
+
+```js
+const parent = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+
+function child() {
+  this.d = 4;
+}
+
+child.prototype = parent;
+
+const childObj = new child();
+
+for (const prop in childObj) {
+  console.log(`${prop}: ${childObj[prop]}`);
+}
+/*
+ * Will display:
+ * a: 1
+ * b: 2
+ * c: 3
+ * d: 4
+ */
+
+for (const prop in childObj) {
+  if (childObj.hasOwnProperty(prop)) {
+    console.log(`${prop}: ${obj[prop]}`);
+  }
+}
+/*
+ * Will display:
+ * d: 4
+ */
+```
+
+### Array.prototype.forEach ###
+
+Some downsides to this are that there is no way to break from the loop like you might with a traditional `for` loop, or `for...of` loop
+
+```js
+const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+values.forEach(value => {
+  console.log(value);
+});
 ```
