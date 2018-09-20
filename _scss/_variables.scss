@@ -1,0 +1,8 @@
+$white: #fff;
+$black: #000;
+
+@for $i from 1 through 8 {
+  .grey-#{$i} {
+    color: darken($white, percentage($i / 10))
+  }
+}

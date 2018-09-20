@@ -1,5 +1,54 @@
 ---
 layout: default
+wrapper_class: 
 ---
+<header>
+  <div class="header-background">
+    <img src="{{ "assets/images/some-code.png"  | relative_url }}" />
+  </div>
+  <div class="header-title">
+    <h1 class="mb-5"><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="row justify-content-around">
+            <div class="col-md-2 col-sm-12">
+              <a href="https://twitter.com/pxslip" class="btn btn-light">
+                <i class="fab fa-twitter mr-1" aria-hidden="true"></i>
+                Twitter
+              </a>
+            </div>
+            <div class="col-md-2 col-sm-12">
+              <a href="https://github.com/pxslip" class="btn btn-light">
+                <i class="fab fa-github mr-1" aria-hidden="true"></i>
+                Github
+              </a>
+            </div>
+            <div class="col-md-2 col-sm-12">
+              <a href="https://keybase.io/pxslip" class="btn btn-light">
+                <i class="fab fa-keybase mr-1" aria-hidden="true"></i>
+                Keybase
+              </a>
+            </div>
+            <div class="col-md-2 col-sm-12">
+              <a href="https://stackoverflow.com/story/pxslip" class="btn btn-light">
+                <i class="fab fa-stack-overflow mr-1" aria-hidden="true"></i>
+                Resumé
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2 col-sm-12">
+          <a href="{{ "/posts.html" | relative_url }}"
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="container-fluid">
 
-{{ content }}
+  {{ content }}
+
+</section>

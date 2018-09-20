@@ -1,5 +1,31 @@
-@import '~bootstrap/scss/bootstrap';
+---
+# Include to ensure Jekyll compiles this
+---
+@import 'variables';
 
-.header-background {
-  background-image: '../images/some-code.png';
+
+
+header {
+  .header-background {
+    filter: grayscale(.9) blur(1px) brightness(.6);
+    img {
+      object-fit: cover;
+      object-position: 0 0;
+      height: 100vh;
+      width: 100%;
+    }
+  }
+  .header-title {
+    position: relative;
+    text-align: center;
+    top: -75vh;
+    h1 {
+      a {
+        color: #fff;
+        &:hover {
+          color: #fff
+        }
+      }
+    }
+  }
 }

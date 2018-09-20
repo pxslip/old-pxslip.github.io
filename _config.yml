@@ -2,7 +2,9 @@ title: Will Kruse
 description: Make it so
 google_analytics:
 show_downloads: false
-theme: jekyll-theme-minimal
 
 plugins:
   - jekyll-mentions
+
+sass:
+  sass_dir: _scss
