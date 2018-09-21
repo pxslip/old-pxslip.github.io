@@ -1,5 +1,6 @@
 ---
-wrapper_class: container-fluid
+wrapper_class: 'container-fluid'
+show_nav: true
 ---
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
@@ -17,11 +18,11 @@ wrapper_class: container-fluid
     <![endif]-->
   </head>
   <body>
-    <div class="{{ page.wrapper_class }}">
+    {% if layout.show_nav %}
+    {% include nav.html blog_is_active=layout.blog_is_active %}
+    {% endif %}
+    <div class="{{ layout.wrapper_class }}">
       {{ content }}
-      <footer>
-
-      </footer>
     </div>
     {% if site.google_analytics %}
     <script>

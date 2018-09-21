@@ -1,8 +1,15 @@
 ---
 layout: default
-wrapper_class: 
+wrapper_class: ''
+show_nav: false
 ---
 <header>
+  <div class="position-abs-top-right z-10">
+      <a href="{{ "/posts.html" | relative_url }}" class="btn btn-light">
+        <i class="fas fa-rss" aria-hidden="true"></i>
+        Blog
+      </a>
+  </div>
   <div class="header-background">
     <img src="{{ "assets/images/some-code.png"  | relative_url }}" />
   </div>
@@ -39,16 +46,17 @@ wrapper_class:
           </div>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-md-2 col-sm-12">
-          <a href="{{ "/posts.html" | relative_url }}"
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+          <p class="text-light">
+            I am a modern Full Stack Developer with experience building web applications from the ground up.
+            I believe in clean, reusable code and maintain modern best practices wherever possible.
+          </p>
+          <p class="text-light mt-3">
+              Software is my passion, let me share it with you.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </header>
-<section class="container-fluid">
-
-  {{ content }}
-
-</section>

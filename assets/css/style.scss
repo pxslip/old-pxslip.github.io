@@ -3,7 +3,15 @@
 ---
 @import 'variables';
 
+.position-abs-top-right {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
 
+.z-10 {
+  z-index: 10;
+}
 
 header {
   .header-background {
@@ -16,9 +24,10 @@ header {
     }
   }
   .header-title {
-    position: relative;
+    position: absolute;
     text-align: center;
-    top: -75vh;
+    top: 25vh;
+    width: 100%;
     h1 {
       a {
         color: #fff;
